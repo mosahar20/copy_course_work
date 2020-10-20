@@ -12,7 +12,7 @@ import org.junit.Test;
 //import games.stendhal.server.entity.item.StackableItem;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.fsm.Engine;
-import games.stendhal.server.maps.deniran.cityinterior.bakery.ChefNPC;
+//import games.stendhal.server.maps.deniran.cityinterior.bakery.ChefNPC;
 import utilities.QuestHelper;
 //import marauroa.common.game.RPObject.ID;
 import utilities.ZonePlayerAndNPCTestImpl;
@@ -55,6 +55,24 @@ public class ChefNPCTest extends ZonePlayerAndNPCTestImpl {
 		assertTrue(npc.isTalking());
 		assertEquals(
 				"Hello and welcome to Deniran Bakery.",
+				getReply(npc));
+	}
+	
+	@Test
+	public void testJob() {
+		final SpeakerNPC npc = getNPC("Patrick");
+		final Engine en = npc.getEngine();
+
+		en.step(player, "hi");
+		assertTrue(npc.isTalking());
+		assertEquals(
+				"Hello and welcome to Deniran Bakery.",
+				getReply(npc));
+		
+		en.step(player, "job");
+		assertTrue(npc.isTalking());
+		assertEquals(
+				"I run Deniran Bakery. ",
 				getReply(npc));
 	}
 
