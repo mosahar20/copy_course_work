@@ -133,11 +133,13 @@ public class IcecreamForAnnieTest {
 		npc = SingletonRepository.getNPCList().get("Mrs Jones");
 		en = npc.getEngine();
 
+		//tests hello again reply
 		en.step(player, "hi");
-		assertEquals("Hello, I see you've met my daughter Annie. I hope she wasn't too demanding. You seem like a nice person.", getReply(npc));
+		assertEquals("Hello again.", getReply(npc));
+		//test 'ice cream' prompt
+		en.step(player, "ice cream");
+		assertEquals("Did Annie ask for another?  I suppose it's okay, as long as she can still eat her tea.", getReply(npc));
 		assertThat(player.getQuest(questSlot), is("mummy"));
-		en.step(player, "task");
-		assertEquals("Nothing, thank you.", getReply(npc));
 		en.step(player, "bye");
 		assertEquals("Bye for now.", getReply(npc));
 

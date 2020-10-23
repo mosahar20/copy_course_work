@@ -87,6 +87,7 @@ public class IcecreamForAnnie extends AbstractQuest {
 
 	/** The delay between repeating quests. */
 	private static final int REQUIRED_MINUTES = 60;
+	private static boolean met_before = false;
 
 	@Override
 	public String getSlotName() {
@@ -267,13 +268,14 @@ public class IcecreamForAnnie extends AbstractQuest {
 					null);
 
 		// player is supposed to begetting ice cream
-		mummyNPC.add(ConversationStates.IDLE,
-					ConversationPhrases.GREETING_MESSAGES,
-					new AndCondition(new GreetingMatchesNameCondition(mummyNPC.getName()),
-							new QuestInStateCondition(QUEST_SLOT, "start")),
-					ConversationStates.ATTENDING,
-					"Hello, I see you've met my daughter Annie. I hope she wasn't too demanding. You seem like a nice person.",
-					new SetQuestAction(QUEST_SLOT, "mummy"));
+		mummyNPC.add(ConversationStates.ATTENDING,
+				"ice cream",
+				new AndCondition(new GreetingMatchesNameCondition(mummyNPC.getName()),
+						new QuestInStateCondition(QUEST_SLOT, "start")),
+				ConversationStates.ATTENDING,
+				"Did Annie ask for another?  I suppose it's okay, as long as she can still eat her tea.",
+				new SetQuestAction(QUEST_SLOT, "mummy"));
+		
 
 		// any other state
 		mummyNPC.add(ConversationStates.IDLE,
