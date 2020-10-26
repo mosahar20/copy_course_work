@@ -177,6 +177,9 @@ public abstract class Pet extends DomesticAnimal {
 		return chosen;
 	}
 
+	//This gets the nearest health item to the pet by running a for loop on the tiles around the pet,
+	//and then checking if a heal item is nearby through canHeal(item i) (which looks through the getMedicneNames ArrayList).
+	// *** Called by logicHealing
 	private Item getNearestHealItem(final double range) {
 		// This way we save several sqrt operations
 		double squaredDistance = range * range;
@@ -195,6 +198,9 @@ public abstract class Pet extends DomesticAnimal {
 		return foodName.contains(i.getName());
 	}
 
+	//Looks through the getMedicneNames ArrayList.
+	// *** Called by getNearestHealItem.
+	//Its public unlike most of the healing classes (Other than logic())
 	boolean canHeal(final Item i) {
 		return medicineName.contains(i.getName());
 	}
@@ -210,7 +216,8 @@ public abstract class Pet extends DomesticAnimal {
 			heal(incHP);
 		}
 	}
-
+	
+	// *** Called by logicHealing() if getNearestHealItem returns a drinking item.
 	private void drink(final ConsumableItem medicine) {
 		if (getHP() < getBaseHP()) {
 			// directly increase the pet's health points
@@ -279,7 +286,9 @@ public abstract class Pet extends DomesticAnimal {
 
 		//drinking logic
 		boolean busyWithHealing = false;
-		if (getHP() < getBaseHP()) {
+		// ******************** Team Course-work 1, Issue #3 ********************
+		// ******************** Fix has been added here ********************
+		if ((getHP() < getBaseHP()) && (getHP() < 100)) {
 			busyWithHealing = logicHealing();
 		}
 
