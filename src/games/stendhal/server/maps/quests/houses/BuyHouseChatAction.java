@@ -1,6 +1,8 @@
 
 package games.stendhal.server.maps.quests.houses;
 
+import java.util.Iterator;
+
 import org.apache.log4j.Logger;
 
 import games.stendhal.common.parser.Sentence;
@@ -14,6 +16,7 @@ import games.stendhal.server.entity.npc.ChatAction;
 import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.player.Player;
+import marauroa.common.game.RPSlot;
 import marauroa.common.game.SlotIsFullException;
 
 final class BuyHouseChatAction extends HouseChatAction implements ChatAction {
@@ -95,6 +98,10 @@ final class BuyHouseChatAction extends HouseChatAction implements ChatAction {
 	}
 
 	private static void fillChest(final StoredChest chest, String id) {
+		Iterator<RPSlot> chessItemList = chest.slotsIterator();	//Iterate through current chest items
+		while (chessItemList.hasNext()) 						//To delete any current items
+			chessItemList.next().clear();
+		
 		Item item = SingletonRepository.getEntityManager().getItem("note");
 		item.setDescription("WELCOME TO THE HOUSE OWNER\n"
 				+ "1. If you do not pay your house taxes, the house and all the items in the chest will be confiscated.\n"
@@ -111,6 +118,9 @@ final class BuyHouseChatAction extends HouseChatAction implements ChatAction {
 			item = SingletonRepository.getEntityManager().getItem("chocolate bar");
 			((StackableItem) item).setQuantity(2);
 			chest.add(item);
+			
+			
+				
 		} catch (SlotIsFullException e) {
 			Logger.getLogger(BuyHouseChatAction.class).info("Could not add " + item.getName() + " to chest in " + id, e);
 		}
