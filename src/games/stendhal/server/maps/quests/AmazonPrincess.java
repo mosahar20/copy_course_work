@@ -26,9 +26,11 @@ import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.action.DropItemAction;
 import games.stendhal.server.entity.npc.action.EquipItemAction;
+import games.stendhal.server.entity.npc.action.IncreaseXPAction;
 import games.stendhal.server.entity.npc.action.InflictStatusOnNPCAction;
 import games.stendhal.server.entity.npc.action.MultipleActions;
 import games.stendhal.server.entity.npc.action.SayTimeRemainingAction;
+import games.stendhal.server.entity.npc.action.SetQuestAction;
 import games.stendhal.server.entity.npc.action.SetQuestAndModifyKarmaAction;
 import games.stendhal.server.entity.npc.condition.AndCondition;
 import games.stendhal.server.entity.npc.condition.NotCondition;
@@ -152,10 +154,13 @@ npc.add(ConversationStates.ATTENDING,
 										Grammar.thisthese(pieAmount) + " " +
 										Grammar.quantityplnoun(pieAmount, "fish pie", "") +
 										" from my cook, and this kiss, from me.");
-								new SetQuestAndModifyKarmaAction(getSlotName(), "drinking;"
-																 + System.currentTimeMillis(), 15.0).fire(player, sentence, npc);
+								//new SetQuestAndModifyKarmaAction(getSlotName(), "drinking;"
+								//								 + System.currentTimeMillis(), 15.0).fire(player, sentence, npc);
+				
+								new SetQuestAction(getSlotName(), "drinking;" + System.currentTimeMillis()).fire(player, sentence, npc);
 							}
 						},
+						new IncreaseXPAction(500),
 						new InflictStatusOnNPCAction("pina colada")
 						));
 
