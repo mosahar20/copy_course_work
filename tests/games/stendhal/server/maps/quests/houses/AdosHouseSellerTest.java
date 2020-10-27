@@ -206,6 +206,15 @@ public class AdosHouseSellerTest {
 		assertThat(getReply(seller), containsString("Congratulations"));
 		assertFalse(george.isEquipped("money", 120000));
 		assertTrue(george.isEquipped("george's house key"));
+		
+		en.step(george, "no");
+		en.step(george, "resell");
+		en.step(george, "yes");
+		george.equipToInventoryOnly(money);
+		en.setCurrentState(QUEST_OFFERED);
+		en.step(george, "buy");
+		en.step(george, "51");
+		assertEquals(3,HouseUtilities.findChest(housePortal).size());
 
 	}
 

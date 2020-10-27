@@ -141,9 +141,15 @@ public class AmazonPrincessTest {
 		assertEquals("Goodbye, and beware of the barbarians.", getReply(npc));
 
 		// -----------------------------------------------
+		// where the player brings the cocktail and princess is thirsty
+		// test if xp += 500; and karma += 0
+		
 		final Item item = ItemTestHelper.createItem("pina colada");
 		player.getSlot("bag").add(item);
-
+		
+		final int xp = player.getXP();
+		final double karma = player.getKarma();
+		
 		en.step(player, "hi");
 		assertEquals("Huh, what are you doing here?", getReply(npc));
 		en.step(player, "pina colada");
@@ -151,6 +157,9 @@ public class AmazonPrincessTest {
 		assertTrue(player.isEquipped("fish pie"));
 		en.step(player, "bye");
 		assertEquals("Goodbye, and beware of the barbarians.", getReply(npc));
+
+		assertEquals(karma, player.getKarma(), 0);  //check if no karma is awarded
+		assertEquals(xp+500, player.getXP());       //check if 500xp has been awarded
 
 		// -----------------------------------------------
 

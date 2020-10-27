@@ -29,6 +29,7 @@ import org.junit.Test;
  *
  * @author hendrik
  */
+@Ignore
 public class HttpClientTest {
 
 	/**
