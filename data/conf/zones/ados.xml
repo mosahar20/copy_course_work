@@ -4996,6 +4996,86 @@ Southeast: Docks
 
   </zone>
 
+
+ <!-- the new ship zone, a copy of the athor ship -->
+ <!-- only remove the scuba npc and divingSpot portal-->
+ 
+	  <zone name="0_ados_ship_e2" level="0" x="501152" y="500000" file="Level 0/athor/ship_w2.tmx">
+    <attributes>
+      <parameter name="color_method">time</parameter>
+      <parameter name="weather">varying(rain=-1,fog=+1,temperature=+2)</parameter>
+    </attributes>
+
+    <!-- NPCs -->
+    
+<!--  use the below comments (configurator) to put NPCs in ship! -->    
+    
+<!--    <configurator class-name="games.stendhal.server.maps.athor.ship.CoastConveyerNPC" />  -->
+<!--    <configurator class-name="games.stendhal.server.maps.athor.ship.CaptainNPC" />  -->  
+    
+    
+    <entity x="34" y="39">
+      <implementation class-name="games.stendhal.server.entity.mapstuff.useable.FishSource">
+     	  <parameter name="species">mackerel</parameter>
+      </implementation>
+    </entity>
+
+    <entity x="15" y="31">
+      <implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
+        <parameter name="sound">water-slosh-01, water-slosh-02, water-slosh-03</parameter>
+        <parameter name="min">1</parameter>
+        <parameter name="max">1</parameter>
+        <parameter name="radius">10</parameter>
+      </implementation>
+    </entity>
+
+    <entity x="30" y="31">
+      <implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
+        <parameter name="sound">water-slosh-01, water-slosh-02, water-slosh-03</parameter>
+        <parameter name="min">1</parameter>
+        <parameter name="max">1</parameter>
+        <parameter name="radius">10</parameter>
+      </implementation>
+    </entity>
+
+    <entity x="30" y="39">
+      <implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
+        <parameter name="sound">water-slosh-01, water-slosh-02, water-slosh-03</parameter>
+        <parameter name="min">1</parameter>
+        <parameter name="max">1</parameter>
+        <parameter name="radius">10</parameter>
+      </implementation>
+    </entity>
+
+    <entity x="15" y="39">
+      <implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
+        <parameter name="sound">water-slosh-01, water-slosh-02, water-slosh-03</parameter>
+        <parameter name="min">1</parameter>
+        <parameter name="max">1</parameter>
+        <parameter name="radius">10</parameter>
+      </implementation>
+    </entity>
+
+    <entity x="22" y="25">
+      <implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
+        <parameter name="sound">water-slosh-01, water-slosh-02, water-slosh-03</parameter>
+        <parameter name="min">1</parameter>
+        <parameter name="max">2</parameter>
+        <parameter name="radius">5</parameter>
+      </implementation>
+    </entity>
+
+    <entity x="22" y="48">
+      <implementation class-name="games.stendhal.server.entity.mapstuff.sound.PeriodicAmbientSoundSource">
+        <parameter name="sound">water-slosh-01, water-slosh-02, water-slosh-03</parameter>
+        <parameter name="min">1</parameter>
+        <parameter name="max">2</parameter>
+        <parameter name="radius">8</parameter>
+      </implementation>
+    </entity>
+  </zone>
+
+
   <zone name="0_ados_swamp" level="0" x="500640" y="500128" file="Level 0/ados/swamp.tmx">
     <attributes>
       <parameter name="color_method">time</parameter>
