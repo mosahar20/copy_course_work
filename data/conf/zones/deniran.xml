@@ -180,6 +180,7 @@
 
         <configurator class-name="games.stendhal.server.maps.deniran.river.BridgePostNPC" />
         <configurator class-name="games.stendhal.server.maps.deniran.river.PortManagerNPC" />
+        <configurator class-name="games.stendhal.server.maps.deniran.river.FerryToAdosNPC" />
 
 		<entity x="63" y="26">
 			<implementation	class-name="games.stendhal.server.entity.mapstuff.area.WalkBlocker" />

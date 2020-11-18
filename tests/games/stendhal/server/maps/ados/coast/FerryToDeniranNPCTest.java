@@ -53,7 +53,6 @@ public class FerryToDeniranNPCTest extends ZonePlayerAndNPCTestImpl{
 				"Welcome to the ferry service from Ados to Deniran! How can I help you?",
 				getReply(npc));
 		engine.step(player, "bye");
-		assertTrue(npc.isTalking());
 		assertEquals(
 				"Hope you will use this service next time.",
 				getReply(npc));

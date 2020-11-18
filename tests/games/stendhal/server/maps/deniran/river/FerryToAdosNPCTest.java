@@ -17,7 +17,7 @@ import utilities.ZonePlayerAndNPCTestImpl;
 public class FerryToAdosNPCTest extends ZonePlayerAndNPCTestImpl{
 
 	private static final String ZONE_NAME = "0_deniran_river_s";
-	private static final String NPC_NAME = "Sam";
+	private static final String NPC_NAME = "Alice";
 	
 	private Player player;
 	private SpeakerNPC npc;
@@ -50,10 +50,9 @@ public class FerryToAdosNPCTest extends ZonePlayerAndNPCTestImpl{
 		engine.step(player, "hi");
 		assertTrue(npc.isTalking());
 		assertEquals(
-				"Welcome to the ferry service from Ados to Deniran! How can I help you?",
+				"Welcome to the ferry service from Deniran to Ados! How can I help you?",
 				getReply(npc));
 		engine.step(player, "bye");
-		assertTrue(npc.isTalking());
 		assertEquals(
 				"Hope you will use this service next time.",
 				getReply(npc));
@@ -64,7 +63,7 @@ public class FerryToAdosNPCTest extends ZonePlayerAndNPCTestImpl{
 		engine.step(player, "hi");
 		assertTrue(npc.isTalking());
 		assertEquals(
-				"Welcome to the ferry service from Ados to Deniran! How can I help you?",
+				"Welcome to the ferry service from Deniran to Ados! How can I help you?",
 				getReply(npc));
 		
 		engine.step(player, "help");
@@ -79,7 +78,7 @@ public class FerryToAdosNPCTest extends ZonePlayerAndNPCTestImpl{
 		engine.step(player, "hi");
 		assertTrue(npc.isTalking());
 		assertEquals(
-				"Welcome to the ferry service from Ados to Deniran! How can I help you?",
+				"Welcome to the ferry service from Deniran to Ados! How can I help you?",
 				getReply(npc));
 		engine.step(player, "board");
 		assertTrue(npc.isTalking());
@@ -92,7 +91,7 @@ public class FerryToAdosNPCTest extends ZonePlayerAndNPCTestImpl{
 		engine.step(player, "hi");
 		assertTrue(npc.isTalking());
 		assertEquals(
-				"Welcome to the ferry service from Ados to Deniran! How can I help you?",
+				"Welcome to the ferry service from Deniran to Ados! How can I help you?",
 				getReply(npc));
 		engine.step(player, "board");
 		assertTrue(npc.isTalking());
