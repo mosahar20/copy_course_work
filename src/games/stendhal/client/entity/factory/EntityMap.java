@@ -35,6 +35,7 @@ import games.stendhal.client.entity.GameBoard;
 import games.stendhal.client.entity.Gate;
 import games.stendhal.client.entity.GrainField;
 import games.stendhal.client.entity.HousePortal;
+import games.stendhal.client.entity.StorageRoomPortal;
 import games.stendhal.client.entity.IEntity;
 import games.stendhal.client.entity.InvisibleEntity;
 import games.stendhal.client.entity.Item;
@@ -157,6 +158,7 @@ public final class EntityMap {
 
 		register("portal", null, null, Portal.class);
 		register("house_portal", null, null, HousePortal.class);
+		register("storage_portal", null, null, StorageRoomPortal.class);
 		register("door", null, null, Door.class);
 		register("fire", null, null, Fire.class);
 

@@ -43,6 +43,7 @@ import games.stendhal.server.entity.mapstuff.office.RentedSign;
 import games.stendhal.server.entity.mapstuff.portal.Door;
 import games.stendhal.server.entity.mapstuff.portal.Gate;
 import games.stendhal.server.entity.mapstuff.portal.HousePortal;
+import games.stendhal.server.entity.mapstuff.portal.StorageRoomPortal;
 import games.stendhal.server.entity.mapstuff.portal.Portal;
 import games.stendhal.server.entity.mapstuff.sign.Sign;
 import games.stendhal.server.entity.mapstuff.sound.LoopedSoundSource;
@@ -185,6 +186,9 @@ public class RPClassGenerator {
 		}
 		if (!RPClass.hasRPClass("house_portal")) {
 			HousePortal.generateRPClass();
+		}
+		if (!RPClass.hasRPClass("storage_portal")) {
+			StorageRoomPortal.generateRPClass();
 		}
 		if (!RPClass.hasRPClass("useable_entity")) {
 			UseableEntity.generateRPClass();

@@ -100,7 +100,290 @@
 		</attributes>
 
 	</zone>
-
+	<zone name="int_deniran_storage_depot" file="interiors/deniran/storage_depot.tmx">
+	    <!-- NPCs -->
+	    <portal x="22" y="57" ref="storage_depot_in">
+	      <destination zone="0_deniran_city" ref="storage_depot" />
+	      <attribute name="move.continuous" />
+	    </portal>
+	    <!-- Chests & Portals-->
+	    <!-- Storage Room 1 -->
+	    <portal x="7" y="39" ref="room_1">
+	      <destination zone="int_deniran_storage_depot" ref="room_1_in" />
+	      <implementation class-name="games.stendhal.server.entity.mapstuff.portal.StorageRoomPortal">
+	        <parameter name="doorId">Storage Room 1</parameter>
+	        <parameter name="rejected">The door is locked.</parameter>
+	      </implementation>
+	    </portal>
+	    <portal x="7" y="36" ref="room_1_in">
+	      <destination zone="int_deniran_storage_depot" ref="room_1" />
+	    </portal>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">2</parameter>
+	      <parameter name="y">31</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">4</parameter>
+	      <parameter name="y">31</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">6</parameter>
+	      <parameter name="y">31</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">8</parameter>
+	      <parameter name="y">31</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">10</parameter>
+	      <parameter name="y">31</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">12</parameter>
+	      <parameter name="y">31</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">14</parameter>
+	      <parameter name="y">31</parameter>
+	    </configurator>
+	     <!-- Storage Room 2 -->
+	     <portal x="30" y="39" ref="room_2">
+	      <destination zone="int_deniran_storage_depot" ref="room_2_in" />
+	      <implementation class-name="games.stendhal.server.entity.mapstuff.portal.StorageRoomPortal">
+	        <parameter name="doorId">Storage Room 2</parameter>
+	        <parameter name="rejected">The door is locked.</parameter>
+	      </implementation>
+	    </portal>
+	    <portal x="30" y="36" ref="room_2_in">
+	      <destination zone="int_deniran_storage_depot" ref="room_2" />
+	    </portal>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">25</parameter>
+	      <parameter name="y">31</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">27</parameter>
+	      <parameter name="y">31</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">29</parameter>
+	      <parameter name="y">31</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">31</parameter>
+	      <parameter name="y">31</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">33</parameter>
+	      <parameter name="y">31</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">35</parameter>
+	      <parameter name="y">31</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">37</parameter>
+	      <parameter name="y">31</parameter>
+	    </configurator>
+	    <!-- Storage Room 3 -->
+	    <portal x="7" y="27" ref="room_3">
+	      <destination zone="int_deniran_storage_depot" ref="room_3_in" />
+	      <implementation class-name="games.stendhal.server.entity.mapstuff.portal.StorageRoomPortal">
+	        <parameter name="doorId">Storage Room 3</parameter>
+	        <parameter name="rejected">The door is locked.</parameter>
+	      </implementation>
+	    </portal>
+	    <portal x="7" y="24" ref="room_3_in">
+	      <destination zone="int_deniran_storage_depot" ref="room_3" />
+	    </portal>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">2</parameter>
+	      <parameter name="y">19</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">4</parameter>
+	      <parameter name="y">19</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">6</parameter>
+	      <parameter name="y">19</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">8</parameter>
+	      <parameter name="y">19</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">10</parameter>
+	      <parameter name="y">19</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">12</parameter>
+	      <parameter name="y">19</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">14</parameter>
+	      <parameter name="y">19</parameter>
+	    </configurator>
+	     <!-- Storage Room 4 -->
+	     <portal x="30" y="27" ref="room_4">
+	      <destination zone="int_deniran_storage_depot" ref="room_4_in" />
+	      <implementation class-name="games.stendhal.server.entity.mapstuff.portal.StorageRoomPortal">
+	        <parameter name="doorId">Storage Room 4</parameter>
+	        <parameter name="rejected">The door is locked.</parameter>
+	      </implementation>
+	    </portal>
+	    <portal x="30" y="24" ref="room_4_in">
+	      <destination zone="int_deniran_storage_depot" ref="room_4" />
+	    </portal>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">25</parameter>
+	      <parameter name="y">19</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">27</parameter>
+	      <parameter name="y">19</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">29</parameter>
+	      <parameter name="y">19</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">31</parameter>
+	      <parameter name="y">19</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">33</parameter>
+	      <parameter name="y">19</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">35</parameter>
+	      <parameter name="y">19</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">37</parameter>
+	      <parameter name="y">19</parameter>
+	    </configurator>
+	    <!-- Storage Room 5 -->
+	    <portal x="7" y="15" ref="room_5">
+	      <destination zone="int_deniran_storage_depot" ref="room_5_in" />
+	      <implementation class-name="games.stendhal.server.entity.mapstuff.portal.StorageRoomPortal">
+	        <parameter name="doorId">Storage Room 5</parameter>
+	        <parameter name="rejected">The door is locked.</parameter>
+	      </implementation>
+	    </portal>
+	    <portal x="7" y="12" ref="room_5_in">
+	      <destination zone="int_deniran_storage_depot" ref="room_5" />
+	    </portal>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">2</parameter>
+	      <parameter name="y">7</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">4</parameter>
+	      <parameter name="y">7</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">6</parameter>
+	      <parameter name="y">7</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">8</parameter>
+	      <parameter name="y">7</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">10</parameter>
+	      <parameter name="y">7</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">12</parameter>
+	      <parameter name="y">7</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">14</parameter>
+	      <parameter name="y">7</parameter>
+	    </configurator>
+	     <!-- Storage Room 6 -->
+	     <portal x="30" y="15" ref="room_6">
+	      <destination zone="int_deniran_storage_depot" ref="room_6_in" />
+	      <implementation class-name="games.stendhal.server.entity.mapstuff.portal.StorageRoomPortal">
+	        <parameter name="doorId">Storage Room 6</parameter>
+	        <parameter name="rejected">The door is locked.</parameter>
+	      </implementation>
+	    </portal>
+	    <portal x="30" y="12" ref="room_6_in">
+	      <destination zone="int_deniran_storage_depot" ref="room_6" />
+	    </portal>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">25</parameter>
+	      <parameter name="y">7</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">27</parameter>
+	      <parameter name="y">7</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">29</parameter>
+	      <parameter name="y">7</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">31</parameter>
+	      <parameter name="y">7</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">33</parameter>
+	      <parameter name="y">7</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">35</parameter>
+	      <parameter name="y">7</parameter>
+	    </configurator>
+	    <configurator
+	      class-name="games.stendhal.server.entity.mapstuff.chest.StoredChestConfigurator">
+	      <parameter name="x">37</parameter>
+	      <parameter name="y">7</parameter>
+	    </configurator>
+  	</zone>
 
 	<zone name="0_deniran_city" level="0" x="499232" y="500000"
 		file="Level 0/deniran/city.tmx">
@@ -117,7 +400,12 @@
 			<attribute name="height">1</attribute>
 			<attribute name="class">transparent</attribute>
 		</entity>
-
+		
+		<!-- Storage Depot -->
+	    <portal x="59" y="30" ref="storage_depot">
+	      <destination zone="int_deniran_storage_depot" ref="storage_depot_in"/>
+	      <attribute name="move.continuous" />
+	    </portal>
 		<portal x="54" y="69" ref="deniran_bank_blue_roof_entrance">
 			<destination zone="int_deniran_bank_blue_roof" ref="entrance" />
 			<attribute name="move.continuous" />

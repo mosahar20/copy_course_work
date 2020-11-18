@@ -150,6 +150,7 @@ public class EntityViewFactory {
 		register("growing_entity_spawner", null, null, GrainField2DView.class);
 
 		register("house_portal", null, null, HousePortal2DView.class);
+		register("storage_portal", null, null, StorageRoomPortal2DView.class);
 
 		register("item", "box", null, Box2DView.class);
 		register("item", "special", "mithril clasp", Item2DView.class);
