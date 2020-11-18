@@ -70,8 +70,27 @@ public class FerryToDeniranNPCTest extends ZonePlayerAndNPCTestImpl{
 	}
 	
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void notEnoughMoneyConvo() {
+		engine.step(player, "hi");
+		assertTrue(npc.isTalking());
+		assertEquals(
+				"Welcome to the ferry service from Ados to Deniran! How can I help you?",
+				getReply(npc));
+		engine.step(player, "board");
+		assertTrue(npc.isTalking());
+		assertEquals("You do not have enough money to board the boat to Deniran!!!", getReply(npc));
 	}
-
+	
+	@Test
+	public void EnoughMoneyConvo() {
+		assertTrue(equipWithMoney(player, 200));
+		engine.step(player, "hi");
+		assertTrue(npc.isTalking());
+		assertEquals(
+				"Welcome to the ferry service from Ados to Deniran! How can I help you?",
+				getReply(npc));
+		engine.step(player, "board");
+		assertTrue(npc.isTalking());
+		assertEquals("Welcome to the boat!!!!", getReply(npc));
+	}
 }
