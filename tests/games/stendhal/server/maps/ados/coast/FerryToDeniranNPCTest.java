@@ -11,7 +11,7 @@ import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.npc.fsm.Engine;
 import games.stendhal.server.entity.player.Player;
-import games.stendhal.server.maps.ados.ship.AdosFerry.Status;
+//import games.stendhal.server.maps.ados.ship.AdosFerry.Status;
 import utilities.QuestHelper;
 import utilities.ZonePlayerAndNPCTestImpl;
 
@@ -19,7 +19,6 @@ public class FerryToDeniranNPCTest extends ZonePlayerAndNPCTestImpl{
 	
 	private static final String ZONE_NAME = "0_ados_coast_s_w2";
 	private static final String NPC_NAME = "Sam";
-	private static final Status Ship_Status = Status.ANCHORED_AT_ADOS;
 	private Player player;
 	private SpeakerNPC npc;
 	private Engine engine;
@@ -85,6 +84,7 @@ public class FerryToDeniranNPCTest extends ZonePlayerAndNPCTestImpl{
 		assertTrue(npc.isTalking());
 		assertEquals("You do not have enough money to board the boat to Deniran!!!", getReply(npc));
 	}
+	
 	
 	@Test
 	public void EnoughMoneyConvo() {

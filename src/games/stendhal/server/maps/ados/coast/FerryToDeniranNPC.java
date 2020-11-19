@@ -26,7 +26,7 @@ public class FerryToDeniranNPC implements ZoneConfigurator {
 		buildNPC(zone);
 	}
 	
-	protected Status ferrystate;
+	public static Status ferrystate;
 	private static StendhalRPZone shipZone;
 
 	public static StendhalRPZone getShipZone() {
@@ -59,6 +59,50 @@ public class FerryToDeniranNPC implements ZoneConfigurator {
 								npc.say(ferrystate.toString());
 							}
 						});
+				
+//				add(ConversationStates.ATTENDING,
+//						"board",
+//						null,
+//						ConversationStates.ATTENDING,
+//						null,
+//						new ChatAction() {
+//							@Override
+//							public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
+//								if (ferrystate == Status.ANCHORED_AT_ADOS) {
+//									npc.say("In order to board the ferry, you have to pay " + AdosFerry.PRICE
+//								+ " gold. Do you want to pay?");
+//									npc.setCurrentState(ConversationStates.SERVICE_OFFERED);
+//								} else {
+//									npc.say("You can only board the ferry when it's anchored at Aods.");
+//								}
+//							}
+//						});
+//
+//				add(ConversationStates.SERVICE_OFFERED,
+//						ConversationPhrases.YES_MESSAGES,
+//						null,
+//						ConversationStates.ATTENDING, null,
+//						new ChatAction() {
+//							@Override
+//							public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
+//								if (player.drop("money", AdosFerry.PRICE)) {
+//									player.teleport(getShipZone(), 27, 33, Direction.LEFT, null);
+//
+//								} else {
+//									npc.say("Hey! You don't have enough money!");
+//								}
+//							}
+//						});
+//
+//				add(ConversationStates.SERVICE_OFFERED,
+//						ConversationPhrases.NO_MESSAGES,
+//						null,
+//						ConversationStates.ATTENDING,
+//						"You don't know what you're missing!",
+//						null);
+//
+//
+//					}};
 				
 				add(ConversationStates.ATTENDING,
 						"board",
