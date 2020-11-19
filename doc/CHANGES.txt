@@ -2,6 +2,21 @@ Changelog
 ---------
 ---------
 
+1.36
+
+*world*
+- new items:
+	-flowerpot
+- new NPC:
+	-Alice: boarding player to ferry from Deniran
+	-Sam: boarding player to ferry from Ados
+	-Jacky: disembarking player from ferry to land
+	-Storage depot seller
+- new zone:
+	-Ados ship (ferry from Ados to Deniran and back)
+- others:
+	-New self storage system
+
 1.35
 
 *world*

@@ -201,3 +201,25 @@ Notable contributors:
 - SnowFlake
   · Maps maker
   · NPCs
+- Gevorg Simonyan
+  · feature with Fared
+  · release plan for slowing wand
+  · code review Boris
+- Ali Awan
+  · Created a new the flower pot item in the game
+  · Allowed user to plant flowers using seeds
+  · Now seeds can be planted anywhere in the game using flower pots
+- Mohammed Alharthy
+  · Wrote the tests for feature "flowerpots" 
+  · Code reviewer in storage
+  · Release plan for FarmBot
+- Boris Minkov 
+  · New zone in Ados - ados_ship
+  · AdosFerry class
+- Chun Hin Fung
+  · Created NPC for boarding player from Ados to ferry
+  · Created NPC for boarding player from Deniran to ferry
+  · Created NPC for disembarking player from ferry to land
+- Fared
+  · Created self storage spaces
+
