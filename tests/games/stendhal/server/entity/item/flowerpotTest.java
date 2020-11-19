@@ -12,7 +12,6 @@
  ***************************************************************************/
 package games.stendhal.server.entity.item;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -24,7 +23,7 @@ import org.junit.Test;
 import games.stendhal.server.core.engine.SingletonRepository;
 import games.stendhal.server.core.engine.StendhalRPZone;
 import games.stendhal.server.entity.Entity;
-import games.stendhal.server.entity.mapstuff.spawner.FlowerGrower;
+import games.stendhal.server.entity.mapstuff.spawner.FlowerPotGrower;
 import games.stendhal.server.entity.player.Player;
 import games.stendhal.server.maps.MockStendlRPWorld;
 import utilities.PlayerTestHelper;
@@ -58,7 +57,7 @@ public class flowerpotTest {
 		assertTrue(fp.onUsed(player));
 
 		assertNotNull(player.getZone().getEntityAt(1, 0));
-		assertTrue(player.getZone().getEntityAt(1, 0) instanceof FlowerGrower);
+		assertTrue(player.getZone().getEntityAt(1, 0) instanceof FlowerPotGrower);
 
 	}
 
@@ -84,8 +83,8 @@ public class flowerpotTest {
 
 		final Entity entity = player.getZone().getEntityAt(1, 0);
 		assertNotNull(entity);
-		if (entity instanceof FlowerGrower) {
-			final FlowerGrower flg = (FlowerGrower) entity;
+		if (entity instanceof FlowerPotGrower) {
+			final FlowerPotGrower flg = (FlowerPotGrower) entity;
 			flg.setToFullGrowth();
 			flg.onUsed(player);
 			assertNull(player.getZone().getEntityAt(1, 0));

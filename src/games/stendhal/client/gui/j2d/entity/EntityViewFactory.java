@@ -179,6 +179,12 @@ public class EntityViewFactory {
 
 		register("item", "jewellery", null, StackableItem2DView.class);
 		register("item", "flower", null, StackableItem2DView.class);
+		
+		
+	//********************New item Flower Pot Added********************
+		register("item", "misc", "flowerpot", UseableItem2DView.class);
+		
+		
 		register("item", "resource", null, StackableItem2DView.class);
 		register("item", "herb", null, StackableItem2DView.class);
 		register("item", "misc", null, StackableItem2DView.class);

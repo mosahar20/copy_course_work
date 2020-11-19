@@ -24,7 +24,7 @@ import games.stendhal.server.entity.mapstuff.spawner.FlowerGrower;
  * The infostring stores what it will grow.
  */
 public class Seed extends StackableItem {
-
+	
 	public Seed(final Seed item) {
 		super(item);
 	}
@@ -40,16 +40,16 @@ public class Seed extends StackableItem {
 	public Seed(final String name, final String clazz, final String subclass, final Map<String, String> attributes) {
 		super(name, clazz, subclass, attributes);
 	}
-
+	
 	@Override
 	public boolean onUsed(final RPEntity user) {
+		
 		if (!this.isContained()) {
 			// the seed is on the ground, but not next to the player
 			if (!this.nextTo(user)) {
 				user.sendPrivateText("The " + this.getName() + " is too far away");
 				return false;
 			}
-
 			// the infostring of the seed stores what it should grow
 			final String infostring = this.getInfoString();
 			FlowerGrower flowerGrower;
@@ -68,10 +68,12 @@ public class Seed extends StackableItem {
 			this.removeOne();
 			return true;
 		}
+
 		// the seed was 'contained' in a slot and so it cannot be planted
 		user.sendPrivateText("You have to put the " + this.getName() + " on the ground to plant it, silly!");
 		return false;
 	}
+
 
 	@Override
 	public String describe() {
