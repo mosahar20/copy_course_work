@@ -61,6 +61,33 @@
     </equipable>
   </item>
 
+
+
+
+
+	<item name="flowerpot">
+		<type class="misc" subclass="flowerpotsprite" tileid="-1" />
+		<description>A brand new Flower Pot that allows you to plant your own food.</description>
+		<implementation class-name="games.stendhal.server.entity.item.FlowerPot" />
+		<attributes>
+      		<quantity value="1"/>
+      		<menu value="Use|Use"/>
+    	</attributes>
+		<equipable>
+			<slot name="ground" />
+			<slot name="terrain" />
+			<slot name="content" />
+			<slot name="lhand" />
+			<slot name="rhand" />
+			<slot name="bag" />
+			<slot name="trade" />
+		</equipable>
+	</item>
+
+
+
+
+
   <item name="giant heart">
     <type class="misc" subclass="giant_heart" tileid="-1"/>
     <description>You see a giant heart. This proves that a giant was defeated, and has magical properties that you are not sure of.</description>

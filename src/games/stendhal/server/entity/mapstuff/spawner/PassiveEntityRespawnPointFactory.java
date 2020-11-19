@@ -56,7 +56,11 @@ public class PassiveEntityRespawnPointFactory {
 		} else if (clazz.contains("resources")) {
 			passiveEntityrespawnPoint = createResource(type);
 
-		} else if (clazz.contains("sheepfood")) {
+		} /*else if (clazz.contains("flowerpotsprite")) {
+			passiveEntityrespawnPoint = createResource(type);
+
+		}*/ 
+		else if (clazz.contains("sheepfood")) {
 			passiveEntityrespawnPoint = new SheepFood();
 
 		} else if (clazz.contains("vegetable")) {
@@ -304,6 +308,9 @@ public class PassiveEntityRespawnPointFactory {
 			passiveEntityrespawnPoint = new PassiveEntityRespawnPoint("mithril nugget", 12000);
 			passiveEntityrespawnPoint.setDescription("You see tiny pieces of mithril ore.");
 			break;
+//		case 6:
+//			passiveEntityrespawnPoint = new PassiveEntityRespawnPoint("flowerpotsprite", 0);
+//			passiveEntityrespawnPoint.setDescription("You see a flower pot, you can grow certain seeds using them.");
 		default:
 			passiveEntityrespawnPoint = null;
 			break;

@@ -356,5 +356,14 @@ public class EntityFactoryTest {
 		assertEquals("we should have created a Door by now", Fire.class, en
 				.getClass());
 	}
+	
+	@Test
+	public final void flowerpotusable() {
+		final RPObject rp = new MockRPObject("item", "flowerpot");
+		final IEntity en = EntityFactory.createEntity(rp);
+		assertNotNull("entity should be created", en);
+		assertEquals("we should have created a UseableItem flowerpot by now",
+				UseableItem.class, en.getClass());
+	}
 
 }
