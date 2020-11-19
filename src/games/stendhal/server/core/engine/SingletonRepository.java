@@ -29,6 +29,7 @@ import games.stendhal.server.entity.npc.behaviour.journal.ServicersRegister;
 import games.stendhal.server.entity.player.GagManager;
 import games.stendhal.server.entity.player.Jail;
 import games.stendhal.server.entity.slot.BankAccessorManager;
+import games.stendhal.server.maps.ados.ship.AdosFerry;
 import games.stendhal.server.maps.athor.ship.AthorFerry;
 import marauroa.server.db.TransactionPool;
 
@@ -166,6 +167,14 @@ public class SingletonRepository {
 	public static AthorFerry getAthorFerry() {
 		return AthorFerry.get();
 	}
+	
+	/**
+	 * @return the AdosFerry instance
+	 */
+	public static AdosFerry getAdosFerry() {
+		return AdosFerry.get();
+	}
+
 
 	/**
 	 * @return the AchievementNotifier instance
