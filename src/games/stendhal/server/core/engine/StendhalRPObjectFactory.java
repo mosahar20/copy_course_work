@@ -22,6 +22,7 @@ import games.stendhal.server.core.engine.transformer.EarningTransformer;
 import games.stendhal.server.core.engine.transformer.ExpirationTrackerTransformer;
 import games.stendhal.server.core.engine.transformer.FlowerGrowerTransFormer;
 import games.stendhal.server.core.engine.transformer.HousePortalTransformer;
+import games.stendhal.server.core.engine.transformer.StorageRoomPortalTransformer;
 import games.stendhal.server.core.engine.transformer.MarketTransformer;
 import games.stendhal.server.core.engine.transformer.OfferTransformer;
 import games.stendhal.server.core.engine.transformer.PlayerTransformer;
@@ -59,6 +60,7 @@ public class StendhalRPObjectFactory extends RPObjectFactory {
 		transformerMap.put(RentedSign.RPCLASS_NAME, new RentedSignTransformer());
 		transformerMap.put("chest", new StoredChestTransformer());
 		transformerMap.put("house_portal", new HousePortalTransformer());
+		transformerMap.put("storage_portal", new StorageRoomPortalTransformer());
 		transformerMap.put(Offer.OFFER_RPCLASS_NAME, new OfferTransformer());
 		transformerMap.put(Earning.EARNING_RPCLASS_NAME, new EarningTransformer());
 		transformerMap.put(Market.MARKET_RPCLASS_NAME, new MarketTransformer());
