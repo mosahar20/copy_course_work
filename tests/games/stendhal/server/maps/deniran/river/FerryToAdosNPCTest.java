@@ -1,4 +1,4 @@
-package games.stendhal.server.maps.ados.coast;
+package games.stendhal.server.maps.deniran.river;
 
 import static org.junit.Assert.*;
 import static utilities.SpeakerNPCTestHelper.getReply;
@@ -14,10 +14,10 @@ import games.stendhal.server.entity.player.Player;
 import utilities.QuestHelper;
 import utilities.ZonePlayerAndNPCTestImpl;
 
-public class FerryToDeniranNPCTest extends ZonePlayerAndNPCTestImpl{
-	
-	private static final String ZONE_NAME = "0_ados_coast_s_w2";
-	private static final String NPC_NAME = "Sam";
+public class FerryToAdosNPCTest extends ZonePlayerAndNPCTestImpl{
+
+	private static final String ZONE_NAME = "0_deniran_river_s";
+	private static final String NPC_NAME = "Alice";
 	
 	private Player player;
 	private SpeakerNPC npc;
@@ -29,10 +29,10 @@ public class FerryToDeniranNPCTest extends ZonePlayerAndNPCTestImpl{
 		setupZone(ZONE_NAME);
 	}
 
-	public FerryToDeniranNPCTest() {
+	public FerryToAdosNPCTest() {
 		setNpcNames(NPC_NAME);
 		setZoneForPlayer(ZONE_NAME);
-		addZoneConfigurator(new FerryToDeniranNPC(), ZONE_NAME);
+		addZoneConfigurator(new FerryToAdosNPC(), ZONE_NAME);
 	}
 	
 	@Override
@@ -50,7 +50,7 @@ public class FerryToDeniranNPCTest extends ZonePlayerAndNPCTestImpl{
 		engine.step(player, "hi");
 		assertTrue(npc.isTalking());
 		assertEquals(
-				"Welcome to the ferry service from Ados to Deniran! How can I help you?",
+				"Welcome to the ferry service from Deniran to Ados! How can I help you?",
 				getReply(npc));
 		engine.step(player, "bye");
 		assertEquals(
@@ -63,13 +63,13 @@ public class FerryToDeniranNPCTest extends ZonePlayerAndNPCTestImpl{
 		engine.step(player, "hi");
 		assertTrue(npc.isTalking());
 		assertEquals(
-				"Welcome to the ferry service from Ados to Deniran! How can I help you?",
+				"Welcome to the ferry service from Deniran to Ados! How can I help you?",
 				getReply(npc));
 		
 		engine.step(player, "help");
 		assertTrue(npc.isTalking());
 		assertEquals(
-				"You will need 200 golds to board the ferry to Deniran",
+				"You will need 200 golds to board the ferry to Ados",
 				getReply(npc));
 	}
 	
@@ -78,11 +78,11 @@ public class FerryToDeniranNPCTest extends ZonePlayerAndNPCTestImpl{
 		engine.step(player, "hi");
 		assertTrue(npc.isTalking());
 		assertEquals(
-				"Welcome to the ferry service from Ados to Deniran! How can I help you?",
+				"Welcome to the ferry service from Deniran to Ados! How can I help you?",
 				getReply(npc));
 		engine.step(player, "board");
 		assertTrue(npc.isTalking());
-		assertEquals("You do not have enough money to board the boat to Deniran!!!", getReply(npc));
+		assertEquals("You do not have enough money to board the boat to Ados!!!", getReply(npc));
 	}
 	
 	@Test
@@ -91,7 +91,7 @@ public class FerryToDeniranNPCTest extends ZonePlayerAndNPCTestImpl{
 		engine.step(player, "hi");
 		assertTrue(npc.isTalking());
 		assertEquals(
-				"Welcome to the ferry service from Ados to Deniran! How can I help you?",
+				"Welcome to the ferry service from Deniran to Ados! How can I help you?",
 				getReply(npc));
 		engine.step(player, "board");
 		assertTrue(npc.isTalking());

@@ -5506,6 +5506,7 @@ Southeast: Docks
 
     <!-- NPCs -->
     <configurator class-name="games.stendhal.server.maps.ados.coast.FerryConveyerNPC" />
+    <configurator class-name="games.stendhal.server.maps.ados.coast.FerryToDeniranNPC" />
 
     <!-- Music/Ambiance -->
     <entity x="96" y="105">
