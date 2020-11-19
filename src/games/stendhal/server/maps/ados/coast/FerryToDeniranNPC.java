@@ -46,9 +46,9 @@ public class FerryToDeniranNPC implements ZoneConfigurator {
 
 			@Override
 			public void createDialog() {
-				addGreeting("Welcome to the ferry service from Ados to Deniran! How can I help you?");
+				addGreeting("Welcome to the ferry service from Ados to Deniran! How can I #help you?");
 				addGoodbye("Hope you will use this service next time.");
-				addHelp("You will need " + AdosFerry.PRICE + " golds to board the ferry to Deniran");
+				addHelp("You will need " + AdosFerry.PRICE + " golds to #board the ferry to Deniran, but only when it's around. Just ask me for the #status if you have no idea where it is.");
 				add(ConversationStates.ATTENDING, "status",
 						null,
 						ConversationStates.ATTENDING,

@@ -50,7 +50,7 @@ public class FerryToDeniranNPCTest extends ZonePlayerAndNPCTestImpl{
 		engine.step(player, "hi");
 		assertTrue(npc.isTalking());
 		assertEquals(
-				"Welcome to the ferry service from Ados to Deniran! How can I help you?",
+				"Welcome to the ferry service from Ados to Deniran! How can I #help you?",
 				getReply(npc));
 		engine.step(player, "bye");
 		assertEquals(
@@ -63,13 +63,13 @@ public class FerryToDeniranNPCTest extends ZonePlayerAndNPCTestImpl{
 		engine.step(player, "hi");
 		assertTrue(npc.isTalking());
 		assertEquals(
-				"Welcome to the ferry service from Ados to Deniran! How can I help you?",
+				"Welcome to the ferry service from Ados to Deniran! How can I #help you?",
 				getReply(npc));
 		
 		engine.step(player, "help");
 		assertTrue(npc.isTalking());
 		assertEquals(
-				"You will need 200 golds to board the ferry to Deniran",
+				"You will need 200 golds to #board the ferry to Deniran, but only when it's around. Just ask me for the #status if you have no idea where it is.",
 				getReply(npc));
 	}
 	
@@ -78,7 +78,7 @@ public class FerryToDeniranNPCTest extends ZonePlayerAndNPCTestImpl{
 		engine.step(player, "hi");
 		assertTrue(npc.isTalking());
 		assertEquals(
-				"Welcome to the ferry service from Ados to Deniran! How can I help you?",
+				"Welcome to the ferry service from Ados to Deniran! How can I #help you?",
 				getReply(npc));
 		engine.step(player, "board");
 		assertTrue(npc.isTalking());
@@ -92,7 +92,7 @@ public class FerryToDeniranNPCTest extends ZonePlayerAndNPCTestImpl{
 		engine.step(player, "hi");
 		assertTrue(npc.isTalking());
 		assertEquals(
-				"Welcome to the ferry service from Ados to Deniran! How can I help you?",
+				"Welcome to the ferry service from Ados to Deniran! How can I #help you?",
 				getReply(npc));
 		engine.step(player, "board");
 		assertTrue(npc.isTalking());
