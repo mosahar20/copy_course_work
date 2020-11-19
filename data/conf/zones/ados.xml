@@ -5007,7 +5007,7 @@ Southeast: Docks
     </attributes>
 
     <!-- NPCs -->
-    
+    <configurator class-name="games.stendhal.server.maps.ados.ship.ShipToLandNPC" />
 <!--  use the below comments (configurator) to put NPCs in ship! -->    
     
 <!--    <configurator class-name="games.stendhal.server.maps.athor.ship.CoastConveyerNPC" />  -->

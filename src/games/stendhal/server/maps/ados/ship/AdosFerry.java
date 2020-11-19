@@ -18,7 +18,7 @@ import games.stendhal.server.util.TimeUtil;
 public final class AdosFerry implements TurnListener {
 
 	/** How much it costs to board the ferry. */
-	public static final int PRICE = 50;
+	public static final int PRICE = 20;
 
 	/** The Singleton instance. */
 	private static AdosFerry instance;

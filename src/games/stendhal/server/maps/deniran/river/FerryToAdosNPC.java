@@ -12,7 +12,8 @@ import games.stendhal.server.entity.npc.ConversationStates;
 import games.stendhal.server.entity.npc.EventRaiser;
 import games.stendhal.server.entity.npc.SpeakerNPC;
 import games.stendhal.server.entity.player.Player;
-import games.stendhal.server.maps.athor.ship.AthorFerry.Status;
+import games.stendhal.server.maps.ados.ship.AdosFerry;
+import games.stendhal.server.maps.ados.ship.AdosFerry.Status;
 
 public class FerryToAdosNPC implements ZoneConfigurator {
 	
@@ -44,7 +45,7 @@ public class FerryToAdosNPC implements ZoneConfigurator {
 			public void createDialog() {
 				addGreeting("Welcome to the ferry service from Deniran to Ados! How can I help you?");
 				addGoodbye("Hope you will use this service next time.");
-				addHelp("You will need 200 golds to board the ferry to Ados");
+				addHelp("You will need " + AdosFerry.PRICE + " golds to board the ferry to Ados");
 				add(ConversationStates.ATTENDING, "status",
 						null,
 						ConversationStates.ATTENDING,
@@ -63,7 +64,7 @@ public class FerryToAdosNPC implements ZoneConfigurator {
 						new ChatAction() {
 							@Override
 							public void fire(final Player player, final Sentence sentence, final EventRaiser npc) {
-								if (player.drop("money", 200)) {
+								if (player.drop("money", AdosFerry.PRICE)) {
 									npc.say("Welcome to the boat!!!!");
 									player.teleport(getShipZone(), 27, 33, Direction.LEFT, null);
 
@@ -72,6 +73,23 @@ public class FerryToAdosNPC implements ZoneConfigurator {
 								}
 							}
 						});
+			}
+		};
+		
+		new AdosFerry.FerryListener() {
+			@Override
+			public void onNewFerryState(final Status status) {
+				ferrystate = status;
+				switch (status) {
+				case ANCHORED_AT_DENIRAN:
+					npc.say("Attention: The ferry has arrived at this coast! You can now #board the ship.");
+					break;
+				case DRIVING_TO_ADOS:
+					npc.say("Attention: The ferry has taken off. You can no longer board it.");
+					break;
+				default:
+					break;
+				}
 			}
 		};
 		
