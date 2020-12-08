@@ -15,9 +15,8 @@
 	<complexType name="actionType">
 		<sequence>
 			<element name="type" type="Q4:typeType" />
-			<element name="description" type="string"></element>
 			<element name="implementation" type="Q4:implementation"></element>
-			<element name="behavior" type="Q4:behavior" minOccurs="0" maxOccurs="4"></element>
+			<element name="behavior" type="Q4:behavior" minOccurs="0" maxOccurs="unbounded"></element>
 		</xsd:sequence>
 		<xsd:attribute name="name" type="xsd:string" />
 		<xsd:attribute name="condition" type="xsd:string" use="optional" />
