@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal ../actions.xsd ">
+
+	<action name="teleport">
+		<implementation class-name="games.stendhal.server.actions.admin.InvisibleAction" />
+		<attributes>
+			<type value = "teleport" />
+	 		<maxParameters value = "4" />
+	 		<minParameters value = "4" />
+	 		<target value = "params[0]" />
+	 		<zone value = "params[1]" />
+	 		<x value = "params[2]" />
+	 		<y value = "params[3]" />
+		</attributes>
+
+	</action>
+</actions>

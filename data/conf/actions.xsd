@@ -4,32 +4,61 @@
 	xmlns:tns="http://www.example.org/actions" elementFormDefault="qualified"
 	xmlns:Q4="stendhal">
 	
-	<element name="actions" type="Q4:Actions" />
-	
-	<complexType name="Actions" >
+		<complexType name="actions" >
 		<sequence>
-			<element name="actions" type="Q4:Action" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="actions" type="Q4:Actions" />
 		</sequence>
 	</complexType>
 	
-	<complexType name="actionType">
+	<complexType name="action">
 		<sequence>
+			<element name="actions" type="Q4:Action" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="type" type="Q4:typeType" />
 			<element name="implementation" type="Q4:implementation"></element>
-			<element name="behavior" type="Q4:behavior" minOccurs="0" maxOccurs="unbounded"></element>
+			<element name="attributes" type="Q4:Attributes" />
 		</xsd:sequence>
-		<xsd:attribute name="name" type="xsd:string" />
-		<xsd:attribute name="condition" type="xsd:string" use="optional" />
+		<xsd:attribute name="name" type="string" use="required"></attribute>
 	</xsd:complexType>
 	
-	<complexType name="typeType">
-		<attribute name="class" type="string"></attribute>
-		<attribute name="subclass" type="string"></attribute>
-	</complexType>
 	
+	
+	<complexType name="Attributes">
+		<sequence>
+		<element name="type" type="attribute-string" use = "required">
+			</element>
+		<element name="maxParameters" type="attribute-integer" use="required">
+			</element>
+		<element name="minParameters" type="attribute-integer" use="required">
+			</element>
+		<element name="target" type="attribute-string" use="optional">
+			</element>
+		<element name="zone" type="attribute-string" use="optional">
+			</element>
+		<element name="x" type="attribute-integer" use="optional">
+			</element>
+		<element name="y" type="attribute-integer" use="optional">
+			</element>
+		</sequence>
+	</complexType> 
+
+
 	<complexType name="implementation">
 		<attribute name="class-name" type="string"></attribute>
 	</complexType>
+	
+
+	
+    <complexType name="attribute-string">
+    	<attribute name="value" type="string" />
+    </complexType>
+
+    <complexType name="attribute-integer">
+    	<attribute name="value" type="integer" />
+    </complexType>
+
+    <complexType name="attribute-float">
+    	<attribute name="value" type="float" />
+    </complexType>
 	
 </schema>
 
