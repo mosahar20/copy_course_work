@@ -2,6 +2,7 @@
 <actions xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="stendhal ../actions.xsd ">
 
+
 	<action name="teleport">
 		<implementation class-name="games.stendhal.server.actions.admin.InvisibleAction" />
 		<attributes>
