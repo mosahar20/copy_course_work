@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<groups xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="stendhal groups.xsd ">
-	<group uri="actions/invisibleaction.xml" />
-	<group uri="actions/teleportaction.xml" />
-</groups>
+<actions xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="stendhal actions.xsd">
+
+
+	<action name="teleport">
+		<implementation class-name="games.stendhal.server.actions.admin.TeleportAction" />
+		<attributes>
+			<type value = "teleport" />
+	 		<maxParameters value = "4" />
+	 		<minParameters value = "4" />
+	 		<target value = "params[0]" />
+	 		<zone value = "params[1]" />
+	 		<x value = "params[2]" />
+	 		<y value = "params[3]" />
+		</attributes>
+	</action>
+	
+	
+	
+	<action name="invisible">
+		<implementation class-name="games.stendhal.server.actions.admin.InvisibleAction" />
+		<attributes>
+			<type value = "invisible" />
+	 		<maxParameters value = "0" />
+	 		<minParameters value = "0" />
+		</attributes>
+	</action>
+
+
+
+</actions>
