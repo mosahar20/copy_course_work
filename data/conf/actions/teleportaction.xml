@@ -4,7 +4,7 @@
 
 
 	<action name="teleport">
-		<implementation class-name="games.stendhal.server.actions.admin.InvisibleAction" />
+		<implementation class-name="games.stendhal.server.actions.admin.TeleportAction" />
 		<attributes>
 			<type value = "teleport" />
 	 		<maxParameters value = "4" />
