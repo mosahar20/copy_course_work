@@ -1,18 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-	
 <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="stendhal"
 	xmlns:tns="http://www.example.org/actions" elementFormDefault="qualified"
 	xmlns:Q4="stendhal">
 	
-		<complexType name="actions" >
+	<element name="actions" type="Q4:Actions"></element>
+	
+	<complexType name="Actions" >
 		<sequence>
-			<element name="actions" type="Q4:Actions" />
+			<element name="action" type="Q4:actionType" />
 		</sequence>
 	</complexType>
 	
-	<complexType name="action">
+	<complexType name="actionType">
 		<sequence>
-			<element name="actions" type="Q4:Action" minOccurs="0" maxOccurs="unbounded"/>
+			<!-- <element name="actions" type="Q4:Action" minOccurs="0" maxOccurs="unbounded"/> -->
 			<element name="type" type="Q4:typeType" />
 			<element name="implementation" type="Q4:implementation"></element>
 			<element name="attributes" type="Q4:Attributes" />
@@ -24,23 +24,27 @@
 	
 	<complexType name="Attributes">
 		<sequence>
-		<element name="type" type="attribute-string" use = "required">
+		<element name="type" type="Q4:attribute-string">
 			</element>
-		<element name="maxParameters" type="attribute-integer" use="required">
+		<element name="maxParameters" type="Q4:attribute-integer">
 			</element>
-		<element name="minParameters" type="attribute-integer" use="required">
+		<element name="minParameters" type="Q4:attribute-integer">
 			</element>
-		<element name="target" type="attribute-string" use="optional">
+		<element name="target" type="Q4:attribute-string">
 			</element>
-		<element name="zone" type="attribute-string" use="optional">
+		<element name="zone" type="Q4:attribute-string">
 			</element>
-		<element name="x" type="attribute-integer" use="optional">
+		<element name="x" type="Q4:attribute-integer">
 			</element>
-		<element name="y" type="attribute-integer" use="optional">
+		<element name="y" type="Q4:attribute-integer">
 			</element>
 		</sequence>
 	</complexType> 
 
+	<complexType name="typeType">
+		<attribute name="class" type="string"></attribute>
+		<attribute name="subclass" type="string"></attribute>
+	</complexType>
 
 	<complexType name="implementation">
 		<attribute name="class-name" type="string"></attribute>
