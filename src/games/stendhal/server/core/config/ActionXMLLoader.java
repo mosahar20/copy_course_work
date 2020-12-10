@@ -17,8 +17,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
+//import java.util.LinkedList;
+//import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -30,8 +30,8 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import games.stendhal.client.actions.SlashAction;
-import games.stendhal.server.core.rule.defaultruleset.DefaultAction;
-import marauroa.common.game.RPAction;
+//import games.stendhal.server.core.rule.defaultruleset.DefaultAction;
+//import marauroa.common.game.RPAction;
 
 public final class ActionXMLLoader extends DefaultHandler {
 	/** the logger instance. */
@@ -153,8 +153,8 @@ public final class ActionXMLLoader extends DefaultHandler {
 	@Override
 	public void endElement(final String namespaceURI, final String sName, final String qName) {
 		if (qName.equals("action")) {
-			String [] param = {"mohammed" ,"0_semos_city", "20" ,"20"};
-			final DefaultAction action = new DefaultAction(name,type,param);
+			//String [] param = {"mohammed" ,"0_semos_city", "20" ,"20"};
+			//final DefaultAction action = new DefaultAction(name,type,param);
 
 			
 			//list.put(type, action);
