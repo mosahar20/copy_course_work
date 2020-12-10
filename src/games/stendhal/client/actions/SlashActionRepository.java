@@ -76,7 +76,9 @@ public class SlashActionRepository {
 		actions.put("inspect", new InspectAction());
 		actions.put(INSPECTKILL, new InspectKillAction());
 		actions.put(INSPECTQUEST, new InspectQuestAction());
-		actions.put("invisible", new InvisibleAction());
+		
+		
+		//actions.put("invisible", new InvisibleAction());
 
 		actions.put("jail", new JailAction());
 
@@ -114,7 +116,7 @@ public class SlashActionRepository {
 		actions.put("support", new SupportAction());
 
 		actions.put("takescreenshot", new ScreenshotAction());
-		actions.put("teleport", new TeleportAction());
+		//actions.put("teleport", new TeleportAction());
 		actions.put("teleportto", new TeleportToAction());
 		actions.put("tellall", new TellAllAction());
 		actions.put("tell", msg);

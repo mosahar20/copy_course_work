@@ -20,12 +20,21 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
+import games.stendhal.client.actions.SlashAction;
 import games.stendhal.common.parser.ExpressionType;
 import games.stendhal.common.parser.WordList;
+import games.stendhal.server.core.config.ActionGroupsXMLLoader;
 import games.stendhal.server.core.config.CreatureGroupsXMLLoader;
 import games.stendhal.server.core.config.ItemGroupsXMLLoader;
 import games.stendhal.server.core.config.ShopsXMLLoader;
 import games.stendhal.server.core.config.SpellGroupsXMLLoader;
+
+
+import games.stendhal.server.core.config.ActionGroupsXMLLoader;
+import marauroa.common.game.RPAction;
+
+
+
 import games.stendhal.server.core.rule.EntityManager;
 import games.stendhal.server.entity.Entity;
 import games.stendhal.server.entity.creature.Creature;
@@ -51,6 +60,9 @@ public class DefaultEntityManager implements EntityManager {
 	/** lists all creatures that are being used at least once. */
 	private final Map<String, Creature> createdCreature;
 
+	private final Map<String, RPAction> createdAction;
+
+	
 	/** lists all items that are being used at least once . */
 	private final Map<String, Item> createdItem;
 
@@ -63,11 +75,14 @@ public class DefaultEntityManager implements EntityManager {
 	private final Map<String, DefaultSpell> nameToSpell;
 
 	private LowerCaseMap<DefaultCreature> classToCreature;
+	private LowerCaseMap<RPAction> classToAction;
 
 	/** no public constructor. */
 	public DefaultEntityManager() {
 		idToClass = new HashMap<String, String>();
 		createdCreature = new HashMap<String, Creature>();
+		createdAction = new HashMap<String, RPAction>();
+
 		createdItem = new HashMap<String, Item>();
 		createdSpell = new HashMap<String, Spell>();
 		classToItem = new HashMap<String, DefaultItem>();
@@ -75,7 +90,9 @@ public class DefaultEntityManager implements EntityManager {
 		buildItemTables();
 		buildCreatureTables();
 		buildSpellTables();
-
+		buildActionTables();
+		
+		
 		ShopsXMLLoader.get().init();
 	}
 
@@ -94,6 +111,17 @@ public class DefaultEntityManager implements EntityManager {
 		}
 	}
 
+	private void buildActionTables() {
+		try {
+			final ActionGroupsXMLLoader loader = new ActionGroupsXMLLoader(new URI("/data/conf/actions.xml"));
+			HashMap<String, SlashAction> load = loader.load();
+			
+		} catch (Exception e) {
+			LOGGER.error("spells.xml could not be loaded", e);
+		}
+	}
+	
+	
 	/**
 	 * Build the items tables
 	 */
@@ -155,6 +183,10 @@ public class DefaultEntityManager implements EntityManager {
 		}
 	}
 
+	/**
+	 * Build the Action tables
+	 */
+	
 	@Override
 	public boolean addItem(final DefaultItem item) {
 		final String clazz = item.getItemName();

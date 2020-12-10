@@ -16,12 +16,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
-import java.util.Arrays;
-import java.util.EnumMap;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -32,10 +29,8 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import games.stendhal.common.constants.Nature;
-import games.stendhal.server.core.rule.defaultruleset.DefaultCreature;
-import games.stendhal.server.entity.creature.impl.DropItem;
-import games.stendhal.server.entity.creature.impl.EquipItem;
+import games.stendhal.client.actions.SlashAction;
+import games.stendhal.server.core.rule.defaultruleset.DefaultAction;
 import marauroa.common.game.RPAction;
 
 public final class ActionXMLLoader extends DefaultHandler {
@@ -69,16 +64,16 @@ public final class ActionXMLLoader extends DefaultHandler {
 
 
 	
-	private List<RPAction> list;
 
-	
+	private  HashMap<String, SlashAction> list;
+
 
 	ActionXMLLoader() {
 		// hide constructor, use the CreatureGroupsXMLLoader instead
 	}
 
-	public List<RPAction> load(final URI ref) throws SAXException {
-		list = new LinkedList<RPAction>();
+	public HashMap<String, SlashAction> load(final URI ref) throws SAXException {
+		list = new HashMap<String, SlashAction>();
 		// Use the default (non-validating) parser
 		final SAXParserFactory factory = SAXParserFactory.newInstance();
 		try {
@@ -122,26 +117,34 @@ public final class ActionXMLLoader extends DefaultHandler {
 		text = "";
 		if (qName.equals("action")) {
 			name = attrs.getValue("name");
-
+			implementation = null;
+			attributes = false;
+			type = null;
+			maxParam = null;
+			minParam = null;
+			target = null;
+			zone = null;
+			x = null;
+			y = null;
 			
-		} else if (qName.equals("implementation")) {
+		} if (qName.equals("implementation")) {
 			implementation = attrs.getValue("value");
 		
-		} else if (qName.equals("attributes")) {
+		} if (qName.equals("attributes")) {
 			attributes = true;
-		} else if (attributes && qName.equals("type")) {
+		} if (attributes && qName.equals("type")) {
 			type = attrs.getValue("value");
-		} else if (attributes && qName.equals("maxParameters")) {
+		}if (attributes && qName.equals("maxParameters")) {
 			maxParam = attrs.getValue("value");
-		}else if (attributes && qName.equals("minParameters")) {
+		} if (attributes && qName.equals("minParameters")) {
 			minParam = attrs.getValue("value");
-		}else if (attributes && qName.equals("target")) {
+		} if (attributes && qName.equals("target")) {
 			target = attrs.getValue("value");
-		}else if (attributes && qName.equals("zone")) {
+		}if (attributes && qName.equals("zone")) {
 			zone = attrs.getValue("value");
-		}else if (attributes && qName.equals("x")) {
+		}if (attributes && qName.equals("x")) {
 			x = attrs.getValue("x");
-		}else if (attributes && qName.equals("y")) {
+		}if (attributes && qName.equals("y")) {
 			y = attrs.getValue("y");
 		}
 	
@@ -150,15 +153,11 @@ public final class ActionXMLLoader extends DefaultHandler {
 	@Override
 	public void endElement(final String namespaceURI, final String sName, final String qName) {
 		if (qName.equals("action")) {
-			final RPAction action = new RPAction();
-			action.put("type", type);
-			action.put("target", target);
-			action.put("zone", zone);
-			action.put("x", x);
-			action.put("y", y);
+			String [] param = {"mohammed" ,"0_semos_city", "20" ,"20"};
+			final DefaultAction action = new DefaultAction(name,type,param);
 
-
-			list.add(action);
+			
+			//list.put(type, action);
 		}
 	}
 	@Override

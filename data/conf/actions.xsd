@@ -16,9 +16,9 @@
 			<element name="type" type="Q4:typeType" />
 			<element name="implementation" type="Q4:implementation"></element>
 			<element name="attributes" type="Q4:Attributes" />
-		</xsd:sequence>
-		<xsd:attribute name="name" type="string" use="required"></attribute>
-	</xsd:complexType>
+		</sequence>
+		<attribute name="name" type="string" use="required"></attribute>
+	</complexType>
 	
 	
 	
