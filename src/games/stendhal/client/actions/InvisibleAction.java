@@ -34,7 +34,7 @@ class InvisibleAction implements SlashAction {
 	public boolean execute(final String[] params, final String remainder) {
 		final RPAction invisible = new RPAction();
 
-		invisible.put("type", "invisible");
+		//invisible.put("type", "invisible");
 
 		ClientSingletonRepository.getClientFramework().send(invisible);
 

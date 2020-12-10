@@ -7,8 +7,10 @@
 package games.stendhal.server.core.config;
 
 import java.io.IOException;
+
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,7 +18,9 @@ import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import games.stendhal.server.core.rule.defaultruleset.DefaultCreature;
+import games.stendhal.client.actions.SlashAction;
+
+
 
 /**
  * Load and configure creatures via an XML configuration file.
@@ -38,6 +42,7 @@ public class ActionGroupsXMLLoader extends DefaultHandler {
 		this.uri = uri;
 	}
 
+	
 
 	/**
 	 * Create an xml based loader of creature groups.
@@ -58,9 +63,9 @@ public class ActionGroupsXMLLoader extends DefaultHandler {
 	 *
 	 * @return list of all creatures.
 	 */
-	public List<SlashAction> load() {
+	public  HashMap<String, SlashAction> load() {
 		final GroupsXMLLoader groupsLoader = new GroupsXMLLoader(uri);
-		final List<SlashAction> list = new LinkedList<SlashAction>();
+		final  HashMap<String, SlashAction> actions = new  HashMap<String, SlashAction>();
 		try {
 			List<URI> groups = groupsLoader.load();
 
@@ -69,7 +74,7 @@ public class ActionGroupsXMLLoader extends DefaultHandler {
 				final ActionXMLLoader loader = new ActionXMLLoader();
 
 				try {
-					list.addAll(loader.load(tempUri));
+					actions.putAll(loader.load(tempUri));
 				} catch (final SAXException ex) {
 					LOGGER.error("Error loading creature group: " + tempUri, ex);
 				}
@@ -79,6 +84,6 @@ public class ActionGroupsXMLLoader extends DefaultHandler {
 		} catch (IOException e) {
 			LOGGER.error(e, e);
 		}
-		return list;
+		return actions;
 	}
 }
