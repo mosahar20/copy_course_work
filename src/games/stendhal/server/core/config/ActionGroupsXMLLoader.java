@@ -16,11 +16,10 @@ import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-//import games.stendhal.client.actions.SlashAction;
-import marauroa.common.game.RPAction;
+import games.stendhal.server.core.rule.defaultruleset.DefaultCreature;
 
 /**
- * Load and configure actionss via an XML configuration file.
+ * Load and configure creatures via an XML configuration file.
  */
 public class ActionGroupsXMLLoader extends DefaultHandler {
 
@@ -30,7 +29,7 @@ public class ActionGroupsXMLLoader extends DefaultHandler {
 	protected URI uri;
 
 	/**
-	 * Create an xml based loader of actions groups.
+	 * Create an xml based loader of creature groups.
 	 *
 	 * @param uri
 	 *            The location of the configuration file.
@@ -41,7 +40,7 @@ public class ActionGroupsXMLLoader extends DefaultHandler {
 
 
 	/**
-	 * Create an xml based loader of actions groups.
+	 * Create an xml based loader of creature groups.
 	 *
 	 * @param uri
 	 *            The location of the configuration file.
@@ -55,13 +54,13 @@ public class ActionGroupsXMLLoader extends DefaultHandler {
 	}
 
 	/**
-	 * Loads actionss
+	 * Loads creatures
 	 *
-	 * @return list of all actionss.
+	 * @return list of all creatures.
 	 */
-	public List<RPAction> load() {
+	public List<SlashAction> load() {
 		final GroupsXMLLoader groupsLoader = new GroupsXMLLoader(uri);
-		final List<RPAction> list = new LinkedList<RPAction>();
+		final List<SlashAction> list = new LinkedList<SlashAction>();
 		try {
 			List<URI> groups = groupsLoader.load();
 
@@ -72,7 +71,7 @@ public class ActionGroupsXMLLoader extends DefaultHandler {
 				try {
 					list.addAll(loader.load(tempUri));
 				} catch (final SAXException ex) {
-					LOGGER.error("Error loading actions group: " + tempUri, ex);
+					LOGGER.error("Error loading creature group: " + tempUri, ex);
 				}
 			}
 		} catch (SAXException e) {

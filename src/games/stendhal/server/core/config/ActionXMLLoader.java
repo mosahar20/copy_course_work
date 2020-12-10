@@ -16,12 +16,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
-/*import java.util.Arrays;
+import java.util.Arrays;
 import java.util.EnumMap;
-import java.util.LinkedHashMap;*/
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
-//import java.util.Map;
+import java.util.Map;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -32,11 +32,10 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-
-/*import games.stendhal.common.constants.Nature;
+import games.stendhal.common.constants.Nature;
 import games.stendhal.server.core.rule.defaultruleset.DefaultCreature;
 import games.stendhal.server.entity.creature.impl.DropItem;
-import games.stendhal.server.entity.creature.impl.EquipItem;*/
+import games.stendhal.server.entity.creature.impl.EquipItem;
 import marauroa.common.game.RPAction;
 
 public final class ActionXMLLoader extends DefaultHandler {
@@ -75,7 +74,7 @@ public final class ActionXMLLoader extends DefaultHandler {
 	
 
 	ActionXMLLoader() {
-		// hide constructor, use the ActionGroupsXMLLoader instead
+		// hide constructor, use the CreatureGroupsXMLLoader instead
 	}
 
 	public List<RPAction> load(final URI ref) throws SAXException {
