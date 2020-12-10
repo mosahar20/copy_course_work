@@ -1,6 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<groups xmlns="stendhal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="stendhal groups.xsd ">
-	<group uri="actions/invisibleaction.xml" />
-	<group uri="actions/teleportaction.xml" />
-</groups>
+<Q4:actions xmlns:Q4="stendhal" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xsi:schemaLocation="stendhal actions.xsd ">
+
+
+	<Q4:action type="invisible" minParameters="0" maxParameters="0">
+		<Q4:actionAttributes id = "type" category = "fixed" val = "invisible"/>
+	</Q4:action>
+	
+	<Q4:action type="teleportto" minParameters="0" maxParameters="0">
+		<Q4:actionAttributes id = "type" category = "fixed" val = "teleportto"/>
+		<Q4:actionAttributes id = "target" category = "arg2"/>
+	</Q4:action>
+		
+	<Q4:action type="teleport" minParameters="4" maxParameters="4">
+		<Q4:actionAttributes id = "type" category = "fixed" val = "teleport"/>
+		<Q4:actionAttributes id = "target" category = "arg1" num = "0"/>
+		<Q4:actionAttributes id = "zone" category = "arg1" num = "1"/>
+		<Q4:actionAttributes id = "x" category = "arg1" num = "2"/>
+		<Q4:actionAttributes id = "y" category = "arg1" num = "3"/>
+	</Q4:action>
+
+	
+	<Q4:action type="support" minParameters="0" maxParameters="0">
+		<Q4:actionAttributes id = "type" category = "fixed" val = "support"/>
+		<Q4:actionAttributes id = "text" category = "arg2" />
+	</Q4:action>
+
+</Q4:actions>

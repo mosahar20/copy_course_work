@@ -6,63 +6,40 @@
 	
 	<complexType name="Actions" >
 		<sequence>
-			<element name="action" type="Q4:actionType" />
+			<element name="action" type="Q4:actionType" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
 	</complexType>
 	
 	<complexType name="actionType">
 		<sequence>
-			<!-- <element name="actions" type="Q4:Action" minOccurs="0" maxOccurs="unbounded"/> -->
-			<element name="type" type="Q4:typeType" />
-			<element name="implementation" type="Q4:implementation"></element>
-			<element name="attributes" type="Q4:Attributes" />
-		</sequence>
-		<attribute name="name" type="string" use="required"></attribute>
-	</complexType>
+		<element name="actionAttributes" type="Q4:Attributes" minOccurs="0" maxOccurs="unbounded"/>
+	</sequence>
+	<attribute name="type" type="string" use="required"/>
+	<attribute name="maxParameters" type="integer" use="required"/>
+	<attribute name="minParameters" type="integer" use="required"/>
+</complexType>
 	
 	
 	
 	<complexType name="Attributes">
-		<sequence>
-		<element name="type" type="Q4:attribute-string">
-			</element>
-		<element name="maxParameters" type="Q4:attribute-integer">
-			</element>
-		<element name="minParameters" type="Q4:attribute-integer">
-			</element>
-		<element name="target" type="Q4:attribute-string">
-			</element>
-		<element name="zone" type="Q4:attribute-string">
-			</element>
-		<element name="x" type="Q4:attribute-integer">
-			</element>
-		<element name="y" type="Q4:attribute-integer">
-			</element>
-		</sequence>
+		<attribute name="id" type="string" use="required"/>
+		<attribute name="category" type="Q4:typeType" use="required"/>
+		<attribute name="val" type="string" use="optional"/>
+		<attribute name="num" type="int" use="optional"/>
 	</complexType> 
-
-	<complexType name="typeType">
-		<attribute name="class" type="string"></attribute>
-		<attribute name="subclass" type="string"></attribute>
-	</complexType>
+	
+	<simpleType name="typeType">
+		<restriction base="string">
+			<enumeration value="fixed" />
+			<enumeration value="arg1" />
+			<enumeration value="arg2" />
+		</restriction>
+	</simpleType>
 
 	<complexType name="implementation">
 		<attribute name="class-name" type="string"></attribute>
 	</complexType>
 	
-
-	
-    <complexType name="attribute-string">
-    	<attribute name="value" type="string" />
-    </complexType>
-
-    <complexType name="attribute-integer">
-    	<attribute name="value" type="integer" />
-    </complexType>
-
-    <complexType name="attribute-float">
-    	<attribute name="value" type="float" />
-    </complexType>
 	
 </schema>
 

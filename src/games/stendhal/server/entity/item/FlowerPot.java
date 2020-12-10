@@ -6,7 +6,7 @@ import java.util.Map;
 import games.stendhal.server.core.events.TurnNotifier;
 import games.stendhal.server.entity.RPEntity;
 import games.stendhal.server.entity.mapstuff.spawner.FlowerPotGrower;
-import games.stendhal.server.entity.item.Seed;
+//import games.stendhal.server.entity.item.Seed;
 
 public class FlowerPot extends Seed{
 	

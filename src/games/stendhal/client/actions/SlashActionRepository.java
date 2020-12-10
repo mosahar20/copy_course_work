@@ -17,7 +17,7 @@ import static games.stendhal.common.constants.Actions.INSPECTKILL;
 import static games.stendhal.common.constants.Actions.INSPECTQUEST;
 import static games.stendhal.common.constants.Actions.REMOVEDETAIL;
 import static games.stendhal.common.constants.General.COMBAT_KARMA;
-
+import games.stendhal.server.core.config.ActionXMLLoader;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Set;
@@ -34,6 +34,8 @@ public class SlashActionRepository {
 	 * Registers the available Action.
 	 */
 	public static void register() {
+		new ActionXMLLoader("/data/conf/actions.xml");
+		ActionXMLLoader.get().init();
 		final SlashAction msg = new MessageAction();
 		final SlashAction supporta = new SupportAnswerAction();
 		final SlashAction who = new WhoAction();

@@ -16,10 +16,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
-import java.util.HashMap;
-//import java.util.LinkedList;
-//import java.util.List;
-
+import java.net.URISyntaxException;
+import java.util.LinkedHashMap;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -29,139 +27,112 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import games.stendhal.client.actions.SlashAction;
-//import games.stendhal.server.core.rule.defaultruleset.DefaultAction;
-//import marauroa.common.game.RPAction;
+import games.stendhal.client.actions.DefaultAction;
 
-public final class ActionXMLLoader extends DefaultHandler {
-	/** the logger instance. */
-	private static final Logger logger = Logger.getLogger(ActionXMLLoader.class);
 
-	private String name;
-
-	private String clazz;
-	
+public class ActionXMLLoader extends DefaultHandler {
 	private String type;
-
-	private String implementation;
+	private int minParameters;
+	private int maxParameters;
+	private LinkedHashMap<String, String> Fixed;
+	private LinkedHashMap<String, Integer> arg1;
+	private String arg2;
 	
-	private boolean attributes;
+	private static LinkedHashMap<String, DefaultAction> actionList;
+	private static final Logger LOGGER = Logger.getLogger(ActionXMLLoader.class);
+	private static ActionXMLLoader loader;
+	private String filePath;
 
-	private String maxParam;
-
-	private String minParam;
-
-	private String target;
-
-	private String zone;
-
-	private String x;
-
-	private String y;
-	
-	private String text;
-	
-
-
-	
-
-	private  HashMap<String, SlashAction> list;
-
-
-	ActionXMLLoader() {
-		// hide constructor, use the CreatureGroupsXMLLoader instead
+	public ActionXMLLoader(String filePath) {
+		super();
+		this.filePath = filePath;
+		loader = this;
 	}
 
-	public HashMap<String, SlashAction> load(final URI ref) throws SAXException {
-		list = new HashMap<String, SlashAction>();
-		// Use the default (non-validating) parser
+	public static ActionXMLLoader get() {
+		if (loader == null) {
+			loader = new ActionXMLLoader("/data/conf/actions.xml");
+		}
+		return loader;
+	}
+
+	public void init() {
+		final InputStream instream = getClass().getResourceAsStream(filePath);
+		actionList = new LinkedHashMap<String, DefaultAction>();
+		if (instream == null) {
+			LOGGER.info("Error (" + filePath + ") not found");
+			return;
+		}
+		try {
+			load(new URI(filePath));
+			instream.close();
+		} catch (final SAXException | URISyntaxException | IOException e) {
+			LOGGER.error(e);
+		}
+	}
+	public void load(final URI uri) throws SAXException {
 		final SAXParserFactory factory = SAXParserFactory.newInstance();
 		try {
-			// Parse the input
 			final SAXParser saxParser = factory.newSAXParser();
 
-			InputStream is = ActionXMLLoader.class.getResourceAsStream(ref.getPath());
+			final InputStream is = ActionXMLLoader.class.getResourceAsStream(uri.getPath());
 
 			if (is == null) {
-				throw new FileNotFoundException("cannot find resource '" + ref
+				throw new FileNotFoundException("cannot find resource '" + uri
 						+ "' in classpath");
 			}
-
 			try {
 				saxParser.parse(is, this);
 			} finally {
 				is.close();
 			}
 		} catch (final ParserConfigurationException t) {
-			logger.error(t);
+			LOGGER.error(t);
 		} catch (final IOException e) {
-			logger.error(e);
+			LOGGER.error(e);
 			throw new SAXException(e);
 		}
-		return list;
-	}
-
-	@Override
-	public void startDocument() {
-		// do nothing
-	}
-
-	@Override
-	public void endDocument() {
-		// do nothing
 	}
 
 	@Override
 	public void startElement(final String namespaceURI, final String lName, final String qName,
 			final Attributes attrs) {
-		text = "";
-		if (qName.equals("action")) {
-			name = attrs.getValue("name");
-			implementation = null;
-			attributes = false;
-			type = null;
-			maxParam = null;
-			minParam = null;
-			target = null;
-			zone = null;
-			x = null;
-			y = null;
+		if (qName.equals("Q4:action")) {
+			type = attrs.getValue("type");
+			minParameters = Integer.parseInt(attrs.getValue("MinimumParameters"));
+			maxParameters = Integer.parseInt(attrs.getValue("MaximumParameters"));
+			Fixed =  new LinkedHashMap<String, String>();
+			arg1 =  new LinkedHashMap<String, Integer>();
+			arg2 = null;
 			
-		} if (qName.equals("implementation")) {
-			implementation = attrs.getValue("value");
-		
-		} if (qName.equals("attributes")) {
-			attributes = true;
-		} if (attributes && qName.equals("type")) {
-			type = attrs.getValue("value");
-		}if (attributes && qName.equals("maxParameters")) {
-			maxParam = attrs.getValue("value");
-		} if (attributes && qName.equals("minParameters")) {
-			minParam = attrs.getValue("value");
-		} if (attributes && qName.equals("target")) {
-			target = attrs.getValue("value");
-		}if (attributes && qName.equals("zone")) {
-			zone = attrs.getValue("value");
-		}if (attributes && qName.equals("x")) {
-			x = attrs.getValue("x");
-		}if (attributes && qName.equals("y")) {
-			y = attrs.getValue("y");
+		} else if (qName.equals("Q4:actionAttributes")) {
+			String category = attrs.getValue("category");
+			String id = attrs.getValue("id");
+			switch(category) {
+				case "fixed":
+					String val = attrs.getValue("val");
+					Fixed.put(id, val);
+					break;
+				case "arg1":
+					int num = Integer.parseInt(attrs.getValue("num"));
+					arg1.put(id,  num);
+					break;
+				default:
+					arg2 = id;
+			}
 		}
-	
 	}
 
 	@Override
 	public void endElement(final String namespaceURI, final String sName, final String qName) {
-		if (qName.equals("action")) {
-			//String [] param = {"mohammed" ,"0_semos_city", "20" ,"20"};
-			//final DefaultAction action = new DefaultAction(name,type,param);
-
-			
-			//list.put(type, action);
+		if (qName.equals("Q4:action")) {
+			DefaultAction action = new DefaultAction(type, minParameters, maxParameters, Fixed, arg1, arg2);
+			actionList.put(type, action);
 		}
 	}
-	@Override
-	public void characters(final char[] buf, final int offset, final int len) {
-		text = text + (new String(buf, offset, len)).trim() + " ";
+
+	static public DefaultAction getSlashAction(String type) {
+		return actionList.get(type);
 	}
+
 }
