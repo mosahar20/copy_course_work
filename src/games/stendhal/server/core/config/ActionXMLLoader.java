@@ -28,6 +28,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import games.stendhal.client.actions.DefaultAction;
+import games.stendhal.client.actions.SlashActionRepository;
 
 
 public class ActionXMLLoader extends DefaultHandler {
@@ -99,8 +100,8 @@ public class ActionXMLLoader extends DefaultHandler {
 			final Attributes attrs) {
 		if (qName.equals("Q4:action")) {
 			type = attrs.getValue("type");
-			minParameters = Integer.parseInt(attrs.getValue("MinimumParameters"));
-			maxParameters = Integer.parseInt(attrs.getValue("MaximumParameters"));
+			minParameters = Integer.parseInt(attrs.getValue("minParameters"));
+			maxParameters = Integer.parseInt(attrs.getValue("maxParameters"));
 			Fixed =  new LinkedHashMap<String, String>();
 			arg1 =  new LinkedHashMap<String, Integer>();
 			arg2 = null;
@@ -128,6 +129,7 @@ public class ActionXMLLoader extends DefaultHandler {
 		if (qName.equals("Q4:action")) {
 			DefaultAction action = new DefaultAction(type, minParameters, maxParameters, Fixed, arg1, arg2);
 			actionList.put(type, action);
+			SlashActionRepository.put(type, action);
 		}
 	}
 

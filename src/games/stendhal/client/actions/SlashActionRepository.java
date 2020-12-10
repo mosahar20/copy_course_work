@@ -163,4 +163,8 @@ public class SlashActionRepository {
 	public static Set<String> getCommandNames() {
 		return actions.keySet();
 	}
+
+	public static void put(String type, DefaultAction action) {
+		actions.put(type, action);	
+	}
 }
