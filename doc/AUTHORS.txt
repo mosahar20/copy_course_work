@@ -205,21 +205,30 @@ Notable contributors:
   · feature with Fared
   · release plan for slowing wand
   · code review Boris
+  · Created wiki 
+  · Created issues
 - Ali Awan
   · Created a new the flower pot item in the game
   · Allowed user to plant flowers using seeds
   · Now seeds can be planted anywhere in the game using flower pots
+  · Created actions.xml and actions.xsd
+  · Converted actions from Java to XML files
 - Mohammed Alharthy
   · Wrote the tests for feature "flowerpots" 
   · Code reviewer in storage
   · Release plan for FarmBot
+  · Made ActionXMLLoader
+  · Contributed to adding the new actions to the actions repository
 - Boris Minkov 
   · New zone in Ados - ados_ship
   · AdosFerry class
+  · Created Tests to increase the test coverage
 - Chun Hin Fung
   · Created NPC for boarding player from Ados to ferry
   · Created NPC for boarding player from Deniran to ferry
   · Created NPC for disembarking player from ferry to land
-- Fared
+  · Created Tests to increase the test coverage
+- Fared Faiza
   · Created self storage spaces
-
+  · Made DefaultAction Class, contributed to ActionXMLLoader
+  · Re-organised actions.xml & actions.xsd

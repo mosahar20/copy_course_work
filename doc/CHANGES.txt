@@ -2,6 +2,12 @@ Changelog
 ---------
 ---------
 
+1.37
+*migration*
+- other:
+	-Move some of the action from java to xml
+	-Created more tests for more test coverage
+
 1.36
 
 *world*
